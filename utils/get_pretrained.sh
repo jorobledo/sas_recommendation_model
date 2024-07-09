@@ -2,7 +2,7 @@
 
 FILE=$1
 
-echo "Note: available models are densenet, inception, or resnet."
+echo "Note: available models are: densenet, inception, or resnet. You can also download all pretrained parameters by using 'all'"
 echo "specified $FILE"
 
 # Declare associative arrays for URLs and model file paths
@@ -30,6 +30,6 @@ if [[ $FILE == "all" ]]; then
 elif [[ -n ${URLS[$FILE]} ]]; then
     download_model $FILE
 else
-    echo "WRONG MODEL NAME! Use one of: densenet, inception, resnet"
+    echo "WRONG MODEL NAME! Use one of: densenet, inception, resnet, or all."
     exit 1
 fi
