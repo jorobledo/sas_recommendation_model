@@ -38,8 +38,7 @@ def ModifiedDenseNet(n_classes, pretrained="densenet.pt", device="cpu"):
         in_features=net.classifier.in_features, out_features=n_classes, bias=True
     )
 
-    # prit network architechture and load pretrained parameters
-    print(net)
+    # load pretrained parameters
     net = load_pretrained(net, pretrained, device)
     return net
 
@@ -74,8 +73,7 @@ def ModifiedInceptionV3(n_classes, pretrained="inception.pt", device="cpu"):
     # Modify last layer
     net.fc = nn.Linear(net.fc.in_features, n_classes)
 
-    # prit network architechture and load pretrained parameters
-    print(net)
+    # load pretrained parameters
     net = load_pretrained(net, pretrained, device)
     return net
 
@@ -96,8 +94,7 @@ def ModifiedResNet(n_classes, pretrained="resnet.pt", device="gpu"):
     # Modify last layer
     net.fc = nn.Linear(net.fc.in_features, n_classes)
 
-    # prit network architechture and load pretrained parameters
-    print(net)
+    # load pretrained parameters
     net = load_pretrained(net, pretrained, device)
     return net
 
