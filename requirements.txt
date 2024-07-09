@@ -1,0 +1,6 @@
+torch
+torchvision
+torchsummary
+zenodo_get
+tqdm
+h5py
