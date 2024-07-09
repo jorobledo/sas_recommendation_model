@@ -44,7 +44,7 @@ transforms = torchvision.transforms.Compose(
     ]
 )
 
-val_dataset = H5Dataset("./data/test.h5", transforms=transforms)
+val_dataset = H5Dataset("./data/val.h5", transforms=transforms)
 
 val_dataloader = DataLoader(
     val_dataset,

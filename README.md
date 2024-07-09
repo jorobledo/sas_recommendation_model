@@ -11,21 +11,17 @@ If you found this repo useful, please [cite us](#citation).
 
 ## Prerequisites
 - python 3
-- CPU or NVIDIA GPU
+- CPU or NVIDIA GPU (recommend GPU for acceleration of training, but testing may be done in the CPU)
 
 ## Installation
 - Clone this repo:
 ```bash
-git clone https://github.com/jorobledo
+git clone https://github.com/jorobledo/sas_recommendation_model
 cd SAS_recommendation_model
 ```
 - Install [PyTorch](http://pytorch.org) and other dependencies:
 ```bash
 pip install -r requirements.txt
-```
-or 
-```bash
-conda env create -f environment.yml
 ```
 
 ## Download dataset
@@ -41,6 +37,17 @@ This will download the full dataset in the `data` folder. Make sure that the scr
 
 ## Instructions
 
+To run the models as in the paper you will need the data and the pretrained parameters. Assuming you already downloaded the data and that it is in the `data` folder of repository directory and that you are standing in the main repo directory, you can run the following command to download the pre-trained parameters:
+```bash
+bash ./utils/get_pretrained.sh all
+```
+The keyword `all` may be changed to `resnet`, `densenet`, or `inception` to download only the specified model parameters. They will be downloaded in the parameters folder (in which `test.py` will search for them).
+
+Once you are on a working environment with pytorch installed you can run
+```bash
+python test.py --batch_size=200 --avg_batches=5 --num_workers=4
+```
+Setting a smaller batch size will run faster, as well as averaging on less amount of batches. You can also set the number of workers for the dataloader (check the `test.py` script for further understanding). This should print out the average Top-1, Top-3, and Top5 accuracies for all of the models.
 
 ## Citation
 If you use this code for your research, please cite our paper.

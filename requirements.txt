@@ -1,6 +1,8 @@
-torch
-torchvision
-torchsummary
-zenodo_get
-tqdm
-h5py
+-f https://download.pytorch.org/whl/torch_stable.html
+numpy==1.26.4
+torch==2.2.1+cpu
+torchvision==0.17.1+cpu
+torchsummary==1.5.1
+zenodo-get==1.6.1
+tqdm==4.66.2
+h5py==3.10.0
