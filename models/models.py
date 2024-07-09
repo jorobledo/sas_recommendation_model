@@ -113,7 +113,7 @@ class ensemble(nn.Module):
             device=device,
         )
         self.inception = ModifiedInceptionV3(
-            classes=self.n_classes,
+            n_classes=self.n_classes,
             pretrained=os.path.join(pretrained, "inception.pt"),
             device=device,
         )
