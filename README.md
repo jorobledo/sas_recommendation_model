@@ -33,7 +33,7 @@ The full dataset of virtual experiments at the KWS-1 beamline of the FRM-II reac
 ```bash
 bash ./utils/get_data.sh
 ```
-This will download the full dataset in the `data` folder. Make sure that the script is run from the current folder for a correct download path. If not, modify the download path in `./utils/det_data.sh` to the desired location. 
+This will download the full dataset in the `data` folder. Make sure that the script is run from the current folder for a correct download path. If not, modify the download path in `./utils/get_data.sh` to the desired location. 
 
 **note**: The dataset is large, therefore this might take a while.
 
