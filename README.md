@@ -1,4 +1,6 @@
-# Small Angle Scattering recommendation system based on CNNs
+# Small Angle Scattering recommendation system based on CNNs and trained from Virtual Experiments
+
+![](figures/main_fig.png)
 
 This repository is related to the [paper](https://www.nature.com/articles/s41598-024-65712-y) "Learning from virtual experiments to assist users of Small Angle Neutron Scattering n model selection"
 
