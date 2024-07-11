@@ -1,3 +1,4 @@
+import concurrent.futures
 import torchvision
 import torch
 from torch.utils.data import DataLoader
@@ -70,8 +71,15 @@ nets = {
 }
 
 
-for neti in nets:
-    net = nets[neti]
+def evaluate_batch(net, device, images, labels):
+    with torch.no_grad():
+        output = net(images.to(device))
+        _, pred = torch.max(output, dim=1)
+
+    acc_val = accuracy_top(output, labels, topk=(1, 3, 5))
+    return acc_val[0].item(), acc_val[1].item(), acc_val[2].item()
+
+def evaluate_net_parallel(neti, net, device, val_dataloader, avg_batches):
     net.to(device)
     net.eval()
     print(neti)
@@ -80,22 +88,22 @@ for neti in nets:
     accuracies3 = []
     accuracies5 = []
     it = iter(val_dataloader)
-    for i in tqdm(range(avg_batches)):
-        images, labels = next(it)
 
-        # Forward pass of batch
-        with torch.no_grad():
-            output = net(images.to(device))
-            _, pred = torch.max(output, dim=1)
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        futures = []
+        for i in tqdm(range(avg_batches)):
+            images, labels = next(it)
+            futures.append(executor.submit(evaluate_batch, net, device, images, labels))
 
-        acc_val = accuracy_top(output, labels, topk=(1, 3, 5))
-        accuracies.append(acc_val[0].item())
-        accuracies3.append(acc_val[1].item())
-        accuracies5.append(acc_val[2].item())
+            # Just average the first avg_batches batches to speed up
+            if i == avg_batches:
+                break
 
-        # just average the first vg_batche batches to speadup
-        if i == avg_batches:
-            break
+        for future in concurrent.futures.as_completed(futures):
+            acc1, acc3, acc5 = future.result()
+            accuracies.append(acc1)
+            accuracies3.append(acc3)
+            accuracies5.append(acc5)
 
     print(
         f"{neti} Top 1 Avg. accuracy: {100*np.mean(accuracies):.2f} (avg.accuracy over {avg_batches} batches)"
@@ -106,3 +114,10 @@ for neti in nets:
     print(
         f"{neti} Top 5 Avg. accuracy: {100*np.mean(accuracies5):.2f} (avg.accuracy over {avg_batches} batches)"
     )
+
+def parallel_evaluation(nets, device, val_dataloader, avg_batches):
+    for neti in nets:
+        net = nets[neti]
+        evaluate_net_parallel(neti, net, device, val_dataloader, avg_batches)
+        
+parallel_evaluation(nets, device, val_dataloader, avg_batches)
