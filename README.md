@@ -2,7 +2,7 @@
 
 ![](figures/main_fig.png)
 
-This repository is related to the [paper](https://www.nature.com/articles/s41598-024-65712-y) "Learning from virtual experiments to assist users of Small Angle Neutron Scattering n model selection"
+This repository is related to the [paper](https://www.nature.com/articles/s41598-024-65712-y) "Learning from virtual experiments to assist users of Small Angle Neutron Scattering in model selection"
 
 The authors of the paper are [Jose Robledo](https://github.com/jorobledo), [Peter Willendrup](https://orbit.dtu.dk/en/persons/peter-kj%C3%A6r-willendrup), [Henrich Frielinghaus](https://www.fz-juelich.de/profile/frielinghaus_h), and [Klaus Lieutenant](https://www.fz-juelich.de/profile/lieutenant_k), and the code was written by Jose Robledo.
 
@@ -19,7 +19,7 @@ If you found this repo useful, please [cite us](#citation).
 - Clone this repo:
 ```bash
 git clone https://github.com/jorobledo/sas_recommendation_model
-cd SAS_recommendation_model
+cd sas_recommendation_model
 ```
 - Install [PyTorch](http://pytorch.org) and other dependencies:
 ```bash
