@@ -1,0 +1,46 @@
+Adsorbed layer
+Barbell aniso
+Bcc paracrystal aniso
+Binary hard sphere
+Broad peak
+Capped cylinder aniso
+Core shell bicelle aniso
+Core shell bicelle elliptical aniso
+Core shell bicelle elliptical br aniso
+Core shell cylinder aniso
+Core shell ellipsoid aniso
+Core shell parallelepiped aniso
+Core shell sphere
+Cylinder aniso
+Dab
+Ellipsoid aniso
+Elliptical cylinder aniso
+Fcc paracrystal aniso
+Flexible cylinder
+Fractal
+Fractal core shell
+Fuzzy sphere
+Gauss lorentz gel
+Gel fit
+Hollow cylinder aniso
+Hollow rectangular prism aniso
+Lamellar hg
+Lamellar hg stack caille
+Lamellar stack paracrystal
+Mass fractal
+Mono gauss coil
+Multilayer vesicle
+Parallelepiped aniso
+Pearl necklace
+Poly gauss coil
+Polymer micelle
+Raspberry
+Rectangular prism aniso
+Sc paracrystal aniso
+Sphere
+Spinodal
+Stacked disks aniso
+Star polymer
+Surface fractal
+Teubner strey
+Triaxial ellipsoid aniso

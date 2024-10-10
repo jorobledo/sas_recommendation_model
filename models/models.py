@@ -24,7 +24,7 @@ def ModifiedDenseNet(n_classes, pretrained="densenet.pt", device="cpu"):
     """DenseNet with a modification of the first layer and last layer"""
 
     # get DenseNet
-    net = torch.hub.load("pytorch/vision:v0.10.0", "densenet121", pretrained=True)
+    net = torch.hub.load("pytorch/vision:v0.10.0", "densenet121", pretrained=False)
 
     # modify first layer
     net.features.conv0 = torch.nn.Conv2d(
@@ -82,9 +82,7 @@ def ModifiedResNet(n_classes, pretrained="resnet.pt", device="gpu"):
     """ResNet50 modified to our need. First and last layer adapted."""
 
     # get ResNet50
-    net = torchvision.models.resnet50(
-        weights=torchvision.models.ResNet50_Weights.IMAGENET1K_V1
-    )
+    net = torchvision.models.resnet50()
 
     # Modify first layer
     net.conv1 = torch.nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3, bias=False)
