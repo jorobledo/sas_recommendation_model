@@ -29,6 +29,8 @@ pip install -r requirements.txt
 ## Download dataset
 The full dataset of virtual experiments at the KWS-1 beamline of the FRM-II reactor in Garching used in our paper is published in Zenodo and can be [downloaded here](https://zenodo.org/records/10119316).
 
+Instructions are explained for Linux. If on Mac or Windows, read the bash scripts and change them accordingly to your command line interface. 
+
 - Download the KWS-1 virtual experiments dataset from zenodo by running:
 ```bash
 mkdir ./data
