@@ -31,11 +31,21 @@ The full dataset of virtual experiments at the KWS-1 beamline of the FRM-II reac
 
 - Download the KWS-1 virtual experiments dataset from zenodo by running:
 ```bash
+mkdir ./data
 bash ./utils/get_data.sh
 ```
 This will download the full dataset in the `data` folder. Make sure that the script is run from the current folder for a correct download path. If not, modify the download path in `./utils/get_data.sh` to the desired location. 
 
 **note**: The dataset is large, therefore this might take a while.
+
+It's also possible to download specific partitions. For example only validation partition data (3.8GB) and metadata can be download as follows:
+
+```
+mkdir ./data
+cd data
+wget https://zenodo.org/records/10119316/files/val.h5
+wget https://zenodo.org/records/10119316/files/val.csv
+```
 
 ## Instructions
 
